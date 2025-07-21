@@ -48,9 +48,9 @@
 <script>
 const CANVAS_WIDTH = 800;
 const CANVAS_HEIGHT = 600;
-const SKIER_WIDTH = 50;
-const SKIER_HEIGHT = 50;
-const SKIER_Y_OFFSET = 40;
+const SKIER_WIDTH = 500;
+const SKIER_HEIGHT = 500;
+const SKIER_Y_OFFSET = 10;
 const SKIER_START_Y = CANVAS_HEIGHT - 100;
 const SKIER_JUMP_HEIGHT = 50;
 const SKIER_JUMP_DURATION = 20; // frames
@@ -61,6 +61,10 @@ const DIFFICULTY_INTERVAL = 300; // frames
 const INITIAL_SLOPE_SPEED = 5;
 const LANE_POSITIONS = [CANVAS_WIDTH / 4, CANVAS_WIDTH / 2, 3 * CANVAS_WIDTH / 4];
 
+const SPRITE_WIDTH = 600;   // width of one pose in the sprite sheet
+const SPRITE_HEIGHT = 600;  // height of one pose
+let skierSprite;
+
 let skier;
 let obstacles = [];
 let score = 0;
@@ -70,12 +74,11 @@ let gameStarted = false;
 let skierImg;
 
 function preload() {
-  skierImg = loadImage('skier1.png');
+  skierSprite = loadImage('sprite.png'); // Your sprite sheet file
   console.log('[info] Load once before setup');
 }
 
 function setup() {
-  console.log(skierImg);
   createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
   skier = {
     lane: 1,
@@ -89,7 +92,7 @@ function setup() {
 }
 
 function draw() {
-  if (!skierImg) {
+  if (!skierSprite) {
     console.log("Image not loaded!");
   }
   // Draw scrolling background
@@ -100,9 +103,14 @@ function draw() {
   // Lane markers
   fill(220);
   rect(LANE_POSITIONS[0] - 10, 0, 20, height);
+
   rect(LANE_POSITIONS[2] - 10, 0, 20, height);
+
   fill(200, 200, 255);
+
   rect(LANE_POSITIONS[1] - 10, 0, 20, height);
+
+
 
   if (!gameStarted) {
     fill(0);
@@ -130,9 +138,26 @@ function draw() {
     }
 
     // Draw skier
-    let skierX = skier.lanePositions[skier.lane] - SKIER_WIDTH / 2;
+    let poseIndex = getSkierPose();
+    let skierX = skier.lanePositions[skier.lane] - 70; // TODO clean hardcoded numbers
     let skierYAdjusted = skierY - SKIER_Y_OFFSET;
-    image(skierImg, skierX, skierYAdjusted, SKIER_WIDTH, SKIER_HEIGHT);
+    let scaleX = 100;
+    let scaleY = scaleX;
+
+    let cropInitX = 980;
+    let cropInitY = 0;
+
+    if(skier.lane === 0) {
+      cropInitX = 0; // left lane
+    } else if (skier.lane === 2) {
+      cropInitX = 600; // right lane
+    } 
+
+    if (skier.isJumping) {
+      cropInitY = 620; 
+    }
+    
+    image(skierSprite, skierX, skierYAdjusted, scaleX, scaleY, cropInitX, cropInitY, SPRITE_WIDTH, SPRITE_HEIGHT);
 
     // Update and draw obstacles
     for (let i = obstacles.length - 1; i >= 0; i--) {
@@ -178,6 +203,19 @@ function draw() {
   textSize(20);
   textAlign(LEFT);
   text("Score: " + score, 20, 30);
+}
+
+// Helper to get skier pose index
+function getSkierPose() {
+  if (skier.isJumping) {
+    if (skier.lane === 0) return 3; // jump left
+    if (skier.lane === 2) return 4; // jump right
+    return 5; // jump straight
+  } else {
+    if (skier.lane === 0) return 0; // move left
+    if (skier.lane === 2) return 1; // move right
+    return 2; // move straight
+  }
 }
 
 function spawnObstacle() {
