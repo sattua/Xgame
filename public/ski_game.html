@@ -59,6 +59,7 @@ const OBSTACLE_X_OFFSET = 15;
 const OBSTACLE_SPAWN_INTERVAL = 60; // frames
 const DIFFICULTY_INTERVAL = 300; // frames
 const INITIAL_SLOPE_SPEED = 5;
+const skyHeight = 150;
 const LANE_POSITIONS = [CANVAS_WIDTH / 4, CANVAS_WIDTH / 2, 3 * CANVAS_WIDTH / 4];
 
 const SPRITE_WIDTH = 600;   // width of one pose in the sprite sheet
@@ -95,20 +96,21 @@ function draw() {
   if (!skierSprite) {
     console.log("Image not loaded!");
   }
-  // Draw scrolling background
+  // Draw scrolling background 
   background(200, 220, 255);
+  
   fill(255);
-  rect(0, 0, width, height);
+  rect(0, skyHeight, width, height-skyHeight);
 
   // Lane markers
   fill(220);
-  rect(LANE_POSITIONS[0] - 10, 0, 20, height);
+  rect(LANE_POSITIONS[0] - 10, skyHeight, 20, height-skyHeight);
 
-  rect(LANE_POSITIONS[2] - 10, 0, 20, height);
+  rect(LANE_POSITIONS[2] - 10, skyHeight, 20, height-skyHeight);
 
   fill(200, 200, 255);
 
-  rect(LANE_POSITIONS[1] - 10, 0, 20, height);
+  rect(LANE_POSITIONS[1] - 10, skyHeight, 20, height-skyHeight);
 
 
 
@@ -222,7 +224,7 @@ function spawnObstacle() {
   let lane = floor(random(3));
   obstacles.push({
     lane: lane,
-    y: 0,
+    y: skyHeight,
     lanePositions: LANE_POSITIONS
   });
 }
