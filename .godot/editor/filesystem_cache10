@@ -1,10 +1,10 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1753150490
+::res://::1753205640
 icon.svg::CompressedTexture2D/CompressedTexture2D::6787887146435368937::1753139065::1753150399::1::::<><><>0<>0<>84b081704f3a2e2e6e8a2f049526da6f<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 Main.gd::GDScript/GDScript::1026552744220445463::1753150251::0::1::::<>Node2D<><>0<>0<><>::
-main.tscn::PackedScene::5052579106715827734::1753150404::0::1::::<><><>0<>0<><>::uid://ovjf520bwdop::::res://Main.gd<>uid://ha3vc27caxhm::::res://sprite.png<>uid://bxe8nwluwnkas::::res://Skier.gd
+main.tscn::PackedScene::5052579106715827734::1753159573::0::1::::<><><>0<>0<><>::uid://ovjf520bwdop::::res://Main.gd<>uid://ha3vc27caxhm::::res://sprite.png<>uid://bxe8nwluwnkas::::res://Skier.gd
 Obstacle.gd::GDScript/GDScript::3197902876379102718::1753148169::0::1::::<>Node2D<><>0<>0<><>::
-Obstacle.tscn::PackedScene/PackedScene::7812599974743316653::1753150265::0::1::::<><><>0<>0<><>::uid://cephjj00i2unr::::res://osbtables.png<>uid://bltc81c7edfas::::res://Obstacle.gd
+Obstacle.tscn::PackedScene::7812599974743316653::1753159508::0::1::::<><><>0<>0<><>::uid://cephjj00i2unr::::res://osbtables.png<>uid://bltc81c7edfas::::res://Obstacle.gd
 osbtables.png::CompressedTexture2D/CompressedTexture2D::5085004011821660371::1753147936::1753150399::1::::<><><>0<>0<>0ebdd75c48df7238bb427f9a83732c51<>res://.godot/imported/osbtables.png-f098eef7dffbc8e0bda0d3e13abdb615.ctex::
-Skier.gd::GDScript/GDScript::4011049647911324098::1753147248::0::1::::<>Sprite2D<><>0<>0<><>::
-sprite.png::CompressedTexture2D/CompressedTexture2D::493059631148743094::1753140284::1753150399::1::::<><><>0<>0<>0c879384a3f8b6f0bd354c522f478040<>res://.godot/imported/sprite.png-20864262c38610f3da4c683b657e17c6.ctex::
+Skier.gd::GDScript::4011049647911324098::1753159213::0::1::::<>AnimatedSprite2D<><>0<>0<><>::
+sprite.png::CompressedTexture2D/CompressedTexture2D::493059631148743094::1753158845::1753159079::1::::<><><>0<>0<>0c879384a3f8b6f0bd354c522f478040<>res://.godot/imported/sprite.png-20864262c38610f3da4c683b657e17c6.ctex::

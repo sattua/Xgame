@@ -6,7 +6,7 @@ extends Node2D
 
 const LANE_POSITIONS = [200.0, 400.0, 600.0]  # Used for obstacle spawning
 const OBSTACLE_SPAWN_INTERVAL := 1.5
-const COLLISION_DISTANCE := 40.0
+const COLLISION_DISTANCE := 20.0
 const DIFFICULTY := 3; # add to rules: difficulty 1 easy, 2 mid, 3 hard
 var spawn_timer := 0.0
 var is_game_over := false
@@ -37,7 +37,8 @@ func _process(delta):
 
 	# Collision detection
 	for obstacle in ObstacleContainer.get_children():
-		if obstacle.position.distance_to(Skier.position) < COLLISION_DISTANCE:
+		var obstacle_pos = obstacle.position + Vector2(0, 220)
+		if obstacle_pos.distance_to(Skier.position) < COLLISION_DISTANCE:
 			if not Skier.is_jumping:
 				game_over()
 
