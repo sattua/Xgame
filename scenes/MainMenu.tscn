@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfkth65cfi52g"]
+
+[ext_resource type="Script" uid="uid://bxdvtweqpnl4m" path="res://scripts/MainMenu.gd" id="1_yqorp"]
+[ext_resource type="AudioStream" uid="uid://wfws7cx6hesn" path="res://assets/sounds/pixel_thrill.mp3" id="2_0ykhv"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_yqorp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 798.0
+offset_bottom = 598.0
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 203.0
+offset_right = 543.0
+offset_bottom = 243.0
+text = "Start"
+
+[node name="MainMenuSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0ykhv")
+autoplay = true

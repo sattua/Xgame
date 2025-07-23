@@ -1,5 +1,7 @@
-res://main.tscn
-res://Skier.gd
-res://Obstacle.tscn
-res://Main.gd
-res://Obstacle.gd
+res://scenes/MainMenu.tscn
+res://scenes/Obstacle.tscn
+res://scenes/main.tscn
+res://scripts/Main.gd
+res://scripts/background.gd
+res://scenes/Background.tscn
+res://scripts/MainMenu.gd

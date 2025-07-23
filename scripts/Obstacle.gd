@@ -7,7 +7,7 @@ const SPRITE_SIZE := Vector2(IMG_SIZE, IMG_SIZE)
 @onready var sprite = $Sprite2D
 
 func _ready():
-	sprite.texture = preload("res://osbtables.png")
+	sprite.texture = preload("res://assets/sprites/osbtables.png")
 	sprite.region_enabled = true
 	sprite.set_process_mode(Node.PROCESS_MODE_ALWAYS)
 	sprite.z_index = 100

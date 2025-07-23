@@ -1,3 +1,10 @@
+AudioStreamPlayer
+ParallaxLayer
+ParallaxBackground
+Sprite2D
+Node2D
 ColorRect
+Button
+Control
 Label
 AnimatedSprite2D
