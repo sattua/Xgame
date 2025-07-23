@@ -1,28 +1,49 @@
-extends ParallaxBackground
+extends Node2D
 
-@onready var sky1 = $Sky/Sky1
-@onready var sky2 = $Sky/Sky2
-@onready var ground1 = $Ground/Ground1
-@onready var ground2 = $Ground/Ground2
+@onready var sky = $Sky/Sky1
+@onready var ground = $Ground/Ground1
+@onready var speedline = $Ground/speadline1
+@onready var speedline2 = $Ground/speadline2
+@onready var speedline3 = $Ground/speadline3
 
-const SKY_SCROLL_SPEED = 20.0
-const GROUND_SCROLL_SPEED = 100.0
+@onready var cloud1 = $Sky/Cloud1
+const SKY_SCROLL_SPEED = 30.0
+
+
+const GROUND_SCROLL_SPEED = 200.0
+var is_active = true  # ✅ control animation
 
 func _process(delta):
-	_scroll_layer(sky1, sky2, SKY_SCROLL_SPEED, delta)
-	_scroll_layer(ground1, ground2, GROUND_SCROLL_SPEED, delta)
-
-func _scroll_layer(sprite1: Sprite2D, sprite2: Sprite2D, speed: float, delta: float):
-	if not sprite1.texture:
-		print("❌ Texture is missing on sprite1!")
+	if not is_active:
 		return
 
-	var height = sprite1.texture.get_height()
+	_speed_line_action(speedline, delta)
+	_speed_line_action(speedline2, delta)
+	_speed_line_action(speedline3, delta)
+	
+	_scroll_sky(cloud1, SKY_SCROLL_SPEED, delta)
 
-	sprite1.position.y += speed * delta
-	sprite2.position.y += speed * delta
+func _scroll_sky(sprite: Sprite2D, speed: float, delta: float):
+	if not sprite.texture:
+		print("❌ Missing texture on sprite")
+		return
 
-	if sprite1.position.y >= height:
-		sprite1.position.y = sprite2.position.y - height
-	if sprite2.position.y >= height:
-		sprite2.position.y = sprite1.position.y - height
+	var height = sprite.texture.get_height()
+	sprite.position.y -= speed * delta
+
+	if sprite.position.y <= sky.position.y - 150: # 150: buffer or marging ,some space
+		sprite.position.y = sky.get_size().y + 25 # 25: buffer or marging ,some space
+
+func _speed_line_action(element: ColorRect, delta: float):
+	var speed = GROUND_SCROLL_SPEED
+	var ground_top = ground.position.y
+	var ground_bottom = ground.position.y + ground.get_size().y
+	var elem_height = element.get_size().y
+
+	element.position.y += speed * delta
+
+	if element.position.y > (ground_bottom - elem_height):
+		element.position.y = ground_top
+
+func stop_background():
+	is_active = false

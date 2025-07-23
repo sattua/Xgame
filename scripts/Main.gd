@@ -62,7 +62,9 @@ func _input(event):
 	elif event.is_action_pressed("move_right"):
 		Skier.move_right()
 	elif event.is_action_pressed("jump"):
+		$Skier/SkiSound.stop()
 		Skier.jump()
+		$Skier/SkiSound.play() # TODO this is not working
 
 
 func start_game():
@@ -75,6 +77,7 @@ func start_game():
 
 func game_over():
 	$Skier/SkiSound.stop()
+	$Background.stop_background()
 	
 	state = GameState.GAME_OVER
 	_setGameMode(Node.PROCESS_MODE_WHEN_PAUSED)

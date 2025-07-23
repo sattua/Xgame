@@ -1,10 +1,12 @@
+Sprite2D
+ColorRect
+Control
+Container
+Node2D
+TextureRect
 AudioStreamPlayer
 ParallaxLayer
 ParallaxBackground
-Sprite2D
-Node2D
-ColorRect
 Button
-Control
 Label
 AnimatedSprite2D
