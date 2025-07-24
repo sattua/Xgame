@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://chl37jn5e0qul"]
 
-[ext_resource type="Script" uid="uid://2inv1hxgtumw" path="res://scripts/background.gd" id="1_274mx"]
+[ext_resource type="Script" uid="uid://2inv1hxgtumw" path="res://scripts/Background.gd" id="1_274mx"]
 [ext_resource type="Texture2D" uid="uid://bu2o4v420w7sm" path="res://assets/sprites/nubes.png" id="2_nou1y"]
 
 [node name="Background" type="Node2D"]
@@ -44,12 +44,14 @@ offset_bottom = -18.0
 color = Color(0.964742, 0.964742, 0.964742, 1)
 
 [node name="speadline2" type="ColorRect" parent="Ground"]
+layout_mode = 0
 offset_top = 138.0
 offset_right = 799.0
 offset_bottom = 178.0
 color = Color(0.964742, 0.964742, 0.964742, 1)
 
 [node name="speadline3" type="ColorRect" parent="Ground"]
+layout_mode = 0
 offset_top = 325.0
 offset_right = 799.0
 offset_bottom = 365.0

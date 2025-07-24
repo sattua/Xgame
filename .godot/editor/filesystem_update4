@@ -6,3 +6,8 @@ res://scenes/Background.tscn
 res://scripts/Main.gd
 res://scripts/Skier.gd
 res://scripts/background.gd
+res://scenes/BossYeti.tscn
+res://scripts/BossYeti.gd
+res://scripts/BossManager.gd
+res://scripts/Routes.gd
+res://scripts/Obstacle.gd
