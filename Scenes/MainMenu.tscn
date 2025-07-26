@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqhuhwpsj84wk"]
+
+[ext_resource type="Script" uid="uid://ba7qt1d3cnd6" path="res://Scripts/MainMenu.gd" id="1_tt5f1"]
+[ext_resource type="Texture2D" uid="uid://buxhjd8j041v7" path="res://assets/imgs/menu.png" id="2_853f1"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tt5f1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -21.0
+offset_top = -114.0
+offset_right = 1127.0
+offset_bottom = 910.0
+texture = ExtResource("2_853f1")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 354.0
+offset_top = 469.0
+offset_right = 804.0
+offset_bottom = 546.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 499.0
+offset_right = 617.0
+offset_bottom = 522.0
+text = "Dash Dance"

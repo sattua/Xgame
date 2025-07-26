@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbkyi78ipro45"]
+
+[ext_resource type="Script" uid="uid://coamkxvdwbtkh" path="res://Scripts/DashDanceMain.gd" id="1_a2ujj"]
+[ext_resource type="PackedScene" uid="uid://xpl1oqc8nc3l" path="res://Scenes/Floor.tscn" id="2_j5xhf"]
+[ext_resource type="PackedScene" uid="uid://u540jeogubnc" path="res://Scenes/Player.tscn" id="3_21bga"]
+[ext_resource type="PackedScene" uid="uid://bfl3ksjbur2w4" path="res://Scenes/Obstacle.tscn" id="3_j5xhf"]
+
+[node name="DashDanceMain" type="Node2D"]
+script = ExtResource("1_a2ujj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -2.0
+offset_top = 145.0
+offset_right = 1151.0
+offset_bottom = 645.0
+
+[node name="Floor" parent="." instance=ExtResource("2_j5xhf")]
+position = Vector2(575, 535)
+
+[node name="Obstacle" parent="." instance=ExtResource("3_j5xhf")]
+
+[node name="Player" parent="." instance=ExtResource("3_21bga")]
+position = Vector2(575, 411)
+scale = Vector2(0.2, 0.2)
+
+[node name="ObstacleSpawner" type="Timer" parent="."]
+wait_time = 1.2
+autostart = true
+
+[connection signal="timeout" from="ObstacleSpawner" to="." method="_on_obstacle_spawner_timeout"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfl3ksjbur2w4"]
+
+[ext_resource type="Script" uid="uid://dm8kpk1uk8xaj" path="res://Scripts/Obstacle.gd" id="1_2sxyv"]
+[ext_resource type="Texture2D" uid="uid://cephjj00i2unr" path="res://assets/sprites/osbtables.png" id="1_uh273"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2sxyv"]
+size = Vector2(53.5, 32)
+
+[node name="Obstacle" type="Area2D"]
+script = ExtResource("1_2sxyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.25, 2)
+shape = SubResource("RectangleShape2D_2sxyv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.134, 0.104)
+texture = ExtResource("1_uh273")
+region_enabled = true
+region_rect = Rect2(39, 80, 500, 500)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
