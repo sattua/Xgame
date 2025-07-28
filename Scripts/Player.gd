@@ -2,8 +2,10 @@ extends CharacterBody2D
 
 const GRAVITY := 500.0
 const LANE_MOVE_SPEED := 9.0
-const JUMP_VELOCITY := -200.0
+const JUMP_VELOCITY := -150.0
 const GLOBALS = preload("res://Scripts/Globals.gd")
+
+signal hp_changed(hp)
 
 var current_lane := 1
 var pose_locked := false
@@ -46,13 +48,14 @@ func handle_gravity(delta):
 		just_jumped = false
 	else:
 		self.velocity.y = 0
-		
-func take_damage():
-	current_hp -= 1
+
+func take_damage(p):
+	current_hp -= p
 	print("💔 Player HP:", current_hp)
+	emit_signal("hp_changed", current_hp)
 	if current_hp <= 0:
 		die()
-		
+
 func die():
 	print("💀 Player defeated!")
 	# TODO: Add death animation, sound, or game over screen
@@ -77,6 +80,6 @@ func get_lane_name(index: int) -> String:
 		1: return "center"
 		2: return "right"
 		_: return "center"  # fallback
-		
+
 func is_airborne() -> bool:
 	return not is_on_floor()

@@ -1,3 +1,5 @@
+Label
+CanvasLayer
 Node
 AudioStreamPlayer
 Timer
@@ -11,5 +13,3 @@ AnimationPlayer
 CharacterBody2D
 Area2D
 Control
-Container
-TextureRect

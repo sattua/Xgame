@@ -15,13 +15,18 @@ var current_frame := 0
 @onready var speedline_timer := $SpeedLineTimer
 @onready var speedline_template := $SpeedLineContainer/SpeedLine
 @onready var speedline_container := $SpeedLineContainer
-
+@onready var hp_label := $HUD/HpLabel
+@onready var player := $Player
 func _ready():
 	print("Main ready")
 	spawner_timer.timeout.connect(_on_ObstacleSpawner_timeout)
 	start_route("route_1")
 	speedline_timer.timeout.connect(_on_SpeedLineTimer_timeout)
+	player.hp_changed.connect(_on_player_hp_changed)
 
+func _on_player_hp_changed(hp: int) -> void:
+	hp_label.text = "HP: %d" % hp
+	
 func start_route(route_name: String):
 	current_route = Routes.ROUTES[route_name]
 	current_frame = 0
@@ -66,7 +71,7 @@ func _on_ObstacleSpawner_timeout():
 
 func spawn_boss(bossname):
 	var boss = BossScene.instantiate()
-	boss.position = Vector2(GLOBALS.LANES[1], 100)  # Center lane
+	boss.position = Vector2(GLOBALS.LANES[1], GLOBALS.HORIZON_Y)
 	boss.set_projectile_route(Routes.BOSS_ROUTES[bossname])
 	boss.connect("boss_finished", Callable(self, "_on_boss_finished"))
 	add_child(boss)
@@ -84,7 +89,7 @@ func _on_boss_finished() -> void:
 
 func _on_obstacle_hit(player) -> void:
 	if player.has_method("take_damage"):
-			player.take_damage()
+			player.take_damage(1)
 			
 func _on_SpeedLineTimer_timeout():
 	var line = speedline_template.duplicate()
