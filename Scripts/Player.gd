@@ -3,7 +3,7 @@ extends CharacterBody2D
 const GRAVITY := 500.0
 const LANE_MOVE_SPEED := 9.0
 const JUMP_VELOCITY := -200.0
-const Globals = preload("res://Scripts/Globals.gd")
+const GLOBALS = preload("res://Scripts/Globals.gd")
 
 var current_lane := 1
 var pose_locked := false
@@ -12,7 +12,8 @@ var max_hp := 3
 var current_hp := max_hp
 
 func _ready():
-	position.x = Globals.LANES[current_lane]
+	z_index = 100
+	position.x = GLOBALS.LANES[current_lane]
 	print("Dash Dancer loaded.")
 
 func _physics_process(delta):
@@ -29,7 +30,7 @@ func _input(event):
 		current_lane -= 1
 		pose_locked = true
 
-	elif event.is_action_pressed("move_right") and current_lane < Globals.LANES.size() - 1:
+	elif event.is_action_pressed("move_right") and current_lane < GLOBALS.LANES.size() - 1:
 		current_lane += 1
 		pose_locked = true
 
@@ -59,7 +60,7 @@ func die():
 func update_animation():
 	position.x = lerp(
 		position.x,
-		Globals.LANES[current_lane],
+		GLOBALS.LANES[current_lane],
 		LANE_MOVE_SPEED * get_physics_process_delta_time()
 	)
 

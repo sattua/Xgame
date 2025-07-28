@@ -13,9 +13,8 @@ signal boss_finished
 const Globals = preload("res://Scripts/Globals.gd")
 const Routes = preload("res://Scripts/Routes.gd")
 
-var current_projectile_route = Routes.BOSS_ROUTES["boss_route_1"]
+var current_projectile_route := []
 var projectile_frame := 0
-
 var direction := 1
 var projectiles_fired := 0
 var center_x := 0.0
@@ -24,6 +23,10 @@ func _ready():
 	center_x = position.x
 	sprite.play("default")
 	entry_timer.start()
+	
+func set_projectile_route(route):
+	current_projectile_route = route
+	
 
 func _physics_process(delta):
 	if shoot_timer.is_stopped():

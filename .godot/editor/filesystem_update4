@@ -7,3 +7,11 @@ res://Scenes/Player.tscn
 res://Scripts/Player.gd
 res://Scenes/Obstacle.tscn
 res://Scripts/Obstacle.gd
+res://Scripts/DashDanceMain.gd
+res://Scenes/Boss.tscn
+res://Scripts/Globals.gd
+res://Scenes/DashDanceMain.tscn
+res://Scenes/MainMenu.tscn
+res://Scenes/Floor.tscn
+res://Scenes/Sky.tscn
+res://Scripts/Sky.gd

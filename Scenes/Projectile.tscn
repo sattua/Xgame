@@ -1,40 +1,40 @@
 [gd_scene load_steps=9 format=3 uid="uid://dy3o4fai0b2nr"]
 
 [ext_resource type="Script" uid="uid://ctxh5ukr21vhj" path="res://Scripts/Projectile.gd" id="1_k1cl8"]
-[ext_resource type="Texture2D" uid="uid://k8dle1ljgyrp" path="res://assets/sprites/projectile.png" id="1_lal66"]
+[ext_resource type="Texture2D" uid="uid://c4tfs2imnmoq5" path="res://assets/sprites/icespare.png" id="2_y0kec"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8cioo"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5i1ty"]
+atlas = ExtResource("2_y0kec")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tued"]
+atlas = ExtResource("2_y0kec")
+region = Rect2(512, 0, 512, 512)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_k1cl8"]
-atlas = ExtResource("1_lal66")
-region = Rect2(0, 0, 250, 250)
+atlas = ExtResource("2_y0kec")
+region = Rect2(0, 512, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y0kec"]
-atlas = ExtResource("1_lal66")
-region = Rect2(250, 0, 250, 250)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0tri7"]
-atlas = ExtResource("1_lal66")
-region = Rect2(0, 250, 250, 250)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ds7j7"]
-atlas = ExtResource("1_lal66")
-region = Rect2(250, 250, 250, 250)
+atlas = ExtResource("2_y0kec")
+region = Rect2(512, 512, 512, 512)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lal66"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_5i1ty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tued")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_k1cl8")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y0kec")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0tri7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ds7j7")
 }],
 "loop": true,
 "name": &"default",
@@ -51,7 +51,7 @@ shape = SubResource("CircleShape2D_8cioo")
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_lal66")
 autoplay = "default"
-frame = 3
+frame = 1
 
 [node name="VisibleOnScreenNotifier2D" type="Timer" parent="."]
 

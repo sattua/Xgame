@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ivi28mjtf0ji"]
+
+[ext_resource type="Texture2D" uid="uid://bu2o4v420w7sm" path="res://assets/sprites/nubes.png" id="1_ekyec"]
+[ext_resource type="Script" uid="uid://dxp0ryn6owtlv" path="res://Scripts/Sky.gd" id="1_kch8h"]
+
+[node name="Sky" type="Node2D"]
+script = ExtResource("1_kch8h")
+
+[node name="Cloud" type="Sprite2D" parent="."]
+position = Vector2(-1.5, 1.50002)
+scale = Vector2(0.532227, 0.415039)
+texture = ExtResource("1_ekyec")
+
+[node name="Cloud2" type="Sprite2D" parent="."]
+position = Vector2(-1.5, 1.50002)
+scale = Vector2(0.532227, 0.415039)
+texture = ExtResource("1_ekyec")
