@@ -8,6 +8,8 @@ const Globals = preload("res://Scripts/Globals.gd")
 var current_lane := 1
 var pose_locked := false
 var just_jumped := false
+var max_hp := 3
+var current_hp := max_hp
 
 func _ready():
 	position.x = Globals.LANES[current_lane]
@@ -43,6 +45,16 @@ func handle_gravity(delta):
 		just_jumped = false
 	else:
 		self.velocity.y = 0
+		
+func take_damage():
+	current_hp -= 1
+	print("💔 Player HP:", current_hp)
+	if current_hp <= 0:
+		die()
+		
+func die():
+	print("💀 Player defeated!")
+	# TODO: Add death animation, sound, or game over screen
 
 func update_animation():
 	position.x = lerp(

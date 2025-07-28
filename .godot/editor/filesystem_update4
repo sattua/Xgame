@@ -1,0 +1,9 @@
+res://Game.tscn
+res://Scripts/Boss.gd
+res://Scripts/Projectile.gd
+res://Scenes/Projectile.tscn
+res://Scripts/Routes.gd
+res://Scenes/Player.tscn
+res://Scripts/Player.gd
+res://Scenes/Obstacle.tscn
+res://Scripts/Obstacle.gd

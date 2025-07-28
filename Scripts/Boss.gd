@@ -47,24 +47,18 @@ func _on_shoot_timer_timeout() -> void:
 		return
 
 	var frame = current_projectile_route[projectile_frame]
-	print("f1")
-	print(frame.line1)
+
 	if frame.line1:
-		print("here1")
 		var p1 = ProjectileScene.instantiate()
 		p1.position = Vector2(Globals.LANES[0], position.y + 20)
 		get_parent().add_child(p1)
-	print("f2")
-	print(frame.line2)
+
 	if frame.line2:
-		print("here2")
 		var p2 = ProjectileScene.instantiate()
 		p2.position = Vector2(Globals.LANES[1], position.y + 20)
 		get_parent().add_child(p2)
-	print("f3")
-	print(frame.line3)
+
 	if frame.line3:
-		print("here3")
 		var p3 = ProjectileScene.instantiate()
 		p3.position = Vector2(Globals.LANES[2], position.y + 20)
 		get_parent().add_child(p3)

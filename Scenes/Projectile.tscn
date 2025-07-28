@@ -48,8 +48,11 @@ script = ExtResource("1_k1cl8")
 shape = SubResource("CircleShape2D_8cioo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_lal66")
 autoplay = "default"
 frame = 3
 
 [node name="VisibleOnScreenNotifier2D" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
