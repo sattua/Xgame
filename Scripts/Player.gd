@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const GRAVITY := 500.0
-const LANE_MOVE_SPEED := 9.0
+const GRAVITY := 300.0
+const LANE_MOVE_SPEED := 10.0
 const JUMP_VELOCITY := -150.0
 const GLOBALS = preload("res://Scripts/Globals.gd")
 

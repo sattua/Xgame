@@ -12,4 +12,3 @@ StaticBody2D
 AnimationPlayer
 CharacterBody2D
 Area2D
-Control

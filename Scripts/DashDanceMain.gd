@@ -26,6 +26,8 @@ func _ready():
 
 func _on_player_hp_changed(hp: int) -> void:
 	hp_label.text = "HP: %d" % hp
+	if hp <= 0:
+		on_game_over()
 	
 func start_route(route_name: String):
 	current_route = Routes.ROUTES[route_name]
@@ -84,6 +86,7 @@ func _on_boss_finished() -> void:
 		LevelPhase.FINAL_BOSS:
 			phase = LevelPhase.COMPLETE
 			print("🎉 Level Complete!")
+			on_win()
 		_:
 			print("⚠ Unexpected boss phase")
 
@@ -101,3 +104,13 @@ func _on_SpeedLineTimer_timeout():
 	tween.tween_property(line, "position:y", 700, 1)  # move down, line,position,position-destination,speed
 	tween.tween_property(line, "modulate:a", 0.0, 0.6)
 	tween.tween_callback(Callable(line, "queue_free"))
+
+func on_game_over():
+	spawner_timer.stop()
+	speedline_timer.stop()
+	$HUD/GameOverLabel.visible = true
+	
+func on_win():
+	spawner_timer.stop()
+	speedline_timer.stop()
+	$HUD/WinLabel.visible = true

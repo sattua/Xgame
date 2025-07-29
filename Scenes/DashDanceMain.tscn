@@ -62,5 +62,25 @@ offset_right = 158.0
 offset_bottom = 81.0
 text = "HP 3"
 
+[node name="GameOverLabel" type="Label" parent="HUD"]
+visible = false
+offset_left = -1.0
+offset_top = 166.0
+offset_right = 1150.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0.694118, 0, 0, 1)
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="WinLabel" type="Label" parent="HUD"]
+visible = false
+offset_left = 2.0
+offset_top = 161.0
+offset_right = 1145.0
+offset_bottom = 184.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level Clear"
+horizontal_alignment = 1
+
 [connection signal="timeout" from="ObstacleSpawner" to="." method="_on_obstacle_spawner_timeout"]
 [connection signal="timeout" from="SpeedLineTimer" to="." method="_on_SpeedLineTimer_timeout"]
